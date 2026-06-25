@@ -1,0 +1,24 @@
+### **Adobe | Conceptual Round**
+
+**Question:** What will be logged? How do you fix this using the spread operator while keeping the code readable?
+
+JavaScript
+
+const state = {
+  user: { id: 101, details: { city: 'Bangalore' } },
+  theme: 'dark'
+};
+
+const newState = {...state };
+newState.user.details.city = 'Chennai';
+
+console.log(state.user.details.city); 
+
+
+OUTPUT:
+Chennai
+
+Why?
+In case of creating new object using spread operator, only the primitive properties will be deep copied and nested elements will be copied by reference as in this case. so, 'city' modified in line:13 - will modify the 'state' object.  
+
+How do you fix this using the spread operator while keeping the code readable?

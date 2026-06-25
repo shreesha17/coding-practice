@@ -1,0 +1,28 @@
+## Call, Apply, and Bind
+
+### **Meta (Facebook) | Technical Trivia: Context in Arrow Functions**
+
+**Question:** What will be the output? Can the context of `greet` be changed using `.call()`? Why or why not?
+
+JavaScript
+const profile = {
+  userName: 'Vasanth',
+  greet: () => {
+    console.log(`Hi, I'm ${this.userName}`);
+  },
+  welcome: function() {
+    console.log(`Welcome, ${this.userName}`);
+  }
+};
+
+const friend = { userName: 'Candidate' };
+
+profile.greet.call(friend); 
+profile.welcome.call(friend);
+
+OUTPUT:
+Hi, I'm undefined
+Welcome, Candidate
+
+Can the context of `greet` be changed using `.call()`? Why or why not?
+context of the greet cannot be changed using .call() method as greet() is an arrow function and arrow functions do not have their own 'this' and they will inherit it from it's parent scope.
